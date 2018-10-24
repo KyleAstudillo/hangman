@@ -13,8 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class GameController {
+
+	private static final Logger logger = LogManager.getLogger("Game");
 
 	private final ExecutorService executorService;
 	private final Game game;	
@@ -41,7 +45,7 @@ public class GameController {
 	private TextField textField ;
 
     public void initialize() throws IOException {
-		System.out.println("in initialize");
+		logger.info("in initialize");
 		drawHangman();
 		addTextBoxListener();
 		setUpStatusLabelBindings();
@@ -62,7 +66,7 @@ public class GameController {
 
 	private void setUpStatusLabelBindings() {
 
-		System.out.println("in setUpStatusLabelBindings");
+        logger.info("in setUpStatusLabelBindings");
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
 		/*	Bindings.when(

@@ -7,11 +7,15 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+
+	private static final Logger logger = LogManager.getLogger("Game");
 
 	private String answer;
 	private String tmpAnswer;
@@ -160,7 +164,7 @@ public class Game {
 	private static void drawHangmanFrame() {}
 
 	public void makeMove(String letter) {
-		log("\nin makeMove: " + letter);
+		log("in makeMove: " + letter);
 		index = update(letter);
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
@@ -173,7 +177,7 @@ public class Game {
 	}
 
 	public static void log(String s) {
-		System.out.println(s);
+        logger.info(s);
 	}
 
 	private GameStatus checkForWinner(int status) {
