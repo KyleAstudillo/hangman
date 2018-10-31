@@ -40,6 +40,8 @@ public class GameController {
 	@FXML
 	private Label statusLabel ;
 	@FXML
+	private Label userInputLabel ;
+	@FXML
 	private Label enterALetterLabel ;
 	@FXML
 	private TextField textField ;
@@ -49,6 +51,7 @@ public class GameController {
 		drawHangman();
 		addTextBoxListener();
 		setUpStatusLabelBindings();
+		setUpUserInputLabelBinding();
 	}
 
 	private void addTextBoxListener() {
@@ -78,6 +81,16 @@ public class GameController {
 			)
 		);
 		*/
+	}
+
+	private void setUpUserInputLabelBinding(){
+		int answerLength = game.getAnswer().length();
+		String placeHolder = "";
+		for(int i=0; i<answerLength ;i++){
+			placeHolder += "_ ";
+		}
+		System.out.print(javafx.scene.text.Font.getFamilies());
+		userInputLabel.textProperty().bind(Bindings.format("%s", placeHolder));
 	}
 
 	private void drawHangman() {
