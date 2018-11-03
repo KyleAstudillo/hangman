@@ -20,8 +20,10 @@ public class GameController {
 
 	private static final Logger logger = LogManager.getLogger("Game");
 
+    //Game Code
 	private final ExecutorService executorService;
-	private final Game game;	
+	private final Game game;
+
 	
 	public GameController(Game game) {
 		this.game = game;

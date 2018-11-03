@@ -12,6 +12,15 @@ import org.apache.log4j.Logger;
 public class Hangman extends Application {
 
 	private static final Logger logger = LogManager.getLogger("Hangman");
+	private boolean show = true;
+
+    public Hangman(boolean show){
+        this.show = show;
+        launch();
+    }
+
+    public Hangman(){
+    }
 
 	@Override
 	public void start(final Stage primaryStage) throws IOException {
@@ -27,7 +36,7 @@ public class Hangman extends Application {
 		scene.getStylesheets().add(getClass().getResource("Hangman.css").toExternalForm());
 		primaryStage.setScene(scene);
         logger.info("Presenting Application");
-		primaryStage.show();
+        primaryStage.show();
 	}
 
 	public static void main(String[] args) {
