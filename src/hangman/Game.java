@@ -1,5 +1,6 @@
 package hangman;
 
+import hangman.controller.DrawController;
 import javafx.beans.Observable;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ObjectProperty;
@@ -25,6 +26,7 @@ public class Game {
 	private int index;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
+	private DrawController drawController;
 
 	public enum GameStatus {
 		GAME_OVER {
@@ -57,7 +59,7 @@ public class Game {
 		}
 	}
 
-	public Game() {
+	public Game(DrawController drawController) {
 		gameStatus = new ReadOnlyObjectWrapper<GameStatus>(this, "gameStatus", GameStatus.OPEN);
 		gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
@@ -68,14 +70,13 @@ public class Game {
 					//currentPlayer.set(null);
 				}
 			}
-
 		});
 		setRandomWord();
 		prepTmpAnswer();
 		prepLetterAndPosArray();
 		moves = 0;
-
 		gameState.setValue(false); // initial state
+        this.drawController = drawController;
 		createGameStatusBinding();
 	}
 
@@ -120,11 +121,13 @@ public class Game {
 	}
 
 	private void setRandomWord() {
+        log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
 		answer = "apple";//words[idx].trim(); // remove new line character
 	}
 
 	private void prepTmpAnswer() {
+        log("in PrepTempAnswer: ");
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < answer.length(); i++) {
 			sb.append(" ");
@@ -133,6 +136,7 @@ public class Game {
 	}
 
 	private void prepLetterAndPosArray() {
+        log("in prepLetterAndPosArray: ");
 		letterAndPosArray = new String[answer.length()];
 		for(int i = 0; i < answer.length(); i++) {
 			letterAndPosArray[i] = answer.substring(i,i+1);
@@ -140,6 +144,7 @@ public class Game {
 	}
 
 	private int getValidIndex(String input) {
+        log("in getValidIndex: ");
 		int index = -1;
 		for(int i = 0; i < letterAndPosArray.length; i++) {
 			if(letterAndPosArray[i].equals(input)) {
@@ -152,6 +157,7 @@ public class Game {
 	}
 
 	private int update(String input) {
+        log("in update: ");
 		int index = getValidIndex(input);
 		if(index != -1) {
 			StringBuilder sb = new StringBuilder(tmpAnswer);
@@ -161,7 +167,18 @@ public class Game {
 		return index;
 	}
 
-	private static void drawHangmanFrame() {}
+	private void drawHangmanFrame() {
+        log("in DrawHangmanFrame");
+        try {
+            log("*** Drawing");
+            if(this.numOfTries() >= this.getMoves()) {
+                drawController.draw(this.numOfTries(), this.getMoves());
+            }
+        } catch (Exception e){
+            log("*** Drawing Error!!!!");
+            log(e.toString());
+        }
+    }
 
 	public void makeMove(String letter) {
 		log("in makeMove: " + letter);
@@ -172,9 +189,10 @@ public class Game {
 
 	public void reset() {}
 
-	private int numOfTries() {
-		return 5; // TODO, fix me
+	public int numOfTries() {
+		return 6; // TODO, fix me
 	}
+	public int getMoves(){return moves;}
 
 	public static void log(String s) {
         logger.info(s);
@@ -186,6 +204,7 @@ public class Game {
 
 	private GameStatus checkForWinner(int status) {
 		log("in checkForWinner");
+		drawHangmanFrame();
 		if(tmpAnswer.equals(answer)) {
 			log("won");
 			return GameStatus.WON;
@@ -197,5 +216,6 @@ public class Game {
 		else {
 			return null;
 		}
+
 	}
 }

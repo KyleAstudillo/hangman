@@ -6,6 +6,8 @@
 	-fx-background-color: aqua ;
 	-fx-padding: 15px ;
 	-fx-alignment: center ;
+	-fx-fit-to-width: true;
+	-fx-fit-to-height: true;
 }
 
 .hangman-board > .board-grid {
