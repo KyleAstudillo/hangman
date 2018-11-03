@@ -180,6 +180,10 @@ public class Game {
         logger.info(s);
 	}
 
+	public String getAnswer(){
+		return answer;
+	}
+
 	private GameStatus checkForWinner(int status) {
 		log("in checkForWinner");
 		if(tmpAnswer.equals(answer)) {
