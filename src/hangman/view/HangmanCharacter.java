@@ -1,24 +1,80 @@
 package hangman.view;
-
-import hangman.helpers.CustomColors;
+/**
+ * @author Kyle Astudillo
+ * @date: 11/3/2018
+ * @description: All variables for controlling the man Drawing
+ */
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
-import javafx.stage.Screen;
+import javafx.util.Duration;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public class HangmanCharacter {
 
     private static final Logger logger = LogManager.getLogger("HangmanCharacter");
+
+    //Tried to not hard code this
     private float width = 0;
     private float height = 0;
+    private String color = "EE7AEB";
+
+
+    //Nodes
+    private Circle head;
+    private Line body;
+    private Line leftArm;
+    private Line rightArm;
+    private Line leftLeg;
+    private Line rightLeg;
+    private Line noose;
+
+    //Animation Translations
+    private TranslateTransition transitionHead = new TranslateTransition();
+    private TranslateTransition transitionbody = new TranslateTransition();
+    private TranslateTransition transitionleftArm = new TranslateTransition();
+    private TranslateTransition transitionrightArm = new TranslateTransition();
+    private TranslateTransition transitionleftLeg = new TranslateTransition();
+    private TranslateTransition transitionrightLeg = new TranslateTransition();
+    private TranslateTransition transitionNoose = new TranslateTransition();
+
+
+
 
     public HangmanCharacter(){
         logger.info("init constructor");
+
+        //Hard Code
+        width = 500;
+        height = 500;
+
+        //head
+        head = new Circle(250, 100, 0);//head
+        head.setRadius(50);//radius of head
+        head.setStyle("-fx-stroke:" + color);//circle color
+        head.setFill(null);//makes the head empty(no brain haha)
+        head.setStrokeWidth(5);//sets the line thickness of circle (head)
+
+        //body parts
+        noose = drawLine(width/2.0f, -300.f, width/2.0f, 50.0f, color);
+        body = drawLine(width/2.0f, 250f, width/2.0f, 150f, color);
+        leftArm = drawLine(width/2.0f, 200.0f, 200.0f, 170.0f, color);
+        rightArm = drawLine(width/2.0f, 200.0f, width/2.0f + 50.0f, 170.0f, color);
+        leftLeg = drawLine(width/2.0f, 250.0f,200.0f, 300.0f, color);
+        rightLeg = drawLine(width/2.0f, 250.0f, width/2.0f + 50.0f, 300.0f, color);
+
+        //Setup translations
+        setTransition(transitionHead, head);
+        setTransition(transitionbody, body);
+        setTransition(transitionleftArm, leftArm);
+        setTransition(transitionrightArm, rightArm);
+        setTransition(transitionleftLeg, leftLeg);
+        setTransition(transitionrightLeg, rightLeg);
+        setTransition(transitionNoose, noose);
     }
 
     public void draw(Pane pane, int numMov, int mov, float width, float height){
@@ -28,6 +84,7 @@ public class HangmanCharacter {
         switch (mov) {
             case 6:
                 pane.getChildren().add(getLeftArm());
+                playTranslation();
                 break;
             case 5:
                 pane.getChildren().add(getRightArm());
@@ -44,7 +101,7 @@ public class HangmanCharacter {
             case 1:
                 pane.getChildren().add(getHead());
                 break;
-            case 0:
+            case 0: //was working but stopped drawing but no that much of a problem
                 pane.getChildren().add(getNoose());
                 break;
             default:
@@ -52,55 +109,60 @@ public class HangmanCharacter {
         }
     }
 
-    public void setTranslation(){
+    public void setTransition(TranslateTransition transition, Node node){
+        transition.setDuration(Duration.seconds(3.0));
+        transition.setToX(0);
+        transition.setToY(50);
+        transition.setAutoReverse(true);
+        transition.setCycleCount(Animation.INDEFINITE);
+        transition.setNode(node);
+    }
 
+    public void playTranslation(){
+        logger.info("***** SET TRANSLATION");
+        transitionHead.play();
+        transitionbody.play();
+        transitionleftArm.play();
+        transitionrightArm.play();
+        transitionleftLeg.play();
+        transitionrightLeg.play();
+        transitionNoose.play();
     }
 
     public Circle getHead(){
         logger.info("getHead");
-        Circle circle = new Circle(250, 100, 0);//head
-        circle.setRadius(50);//radius of head
-        circle.setStroke(Color.BLACK);//circle color
-        circle.setFill(null);//makes the head empty(no brain haha)
-        circle.setStrokeWidth(5);//sets the line thickness of circle (head)
-        return circle;
+        return head;
     }
 
     public Line getNoose(){
         logger.info("getNoose");
-        return drawLine(width/2.0f, 0.f, width/2.0f, 50.0f, "Green");
+        return noose;
     }
 
     public Line getBody(){
         logger.info("getBody");
-        return drawLine(width/2.0f, 250f, width/2.0f, 150f, "Red");
+        return body;
     }
 
     public Line getLeftArm(){
         logger.info("getLeftArm");
-        return drawLine(width/2.0f, 200.0f, 200.0f, 170.0f, "Blue");
+        return leftArm;
     }
 
     public Line getRightArm(){
         logger.info("getRightArm");
-        return drawLine(width/2.0f, 200.0f, width/2.0f + 50.0f, 170.0f, "Yellow");
+        return rightArm;
     }
 
     public Line getLeftLeg(){
         logger.info("getLeftLeg");
-        return drawLine(width/2.0f, 250.0f,200.0f, 300.0f, "Blue");
+        return leftLeg;
     }
 
     public Line getRightLeg(){
         logger.info("getRightLeg");
-        return drawLine(width/2.0f, 250.0f, width/2.0f + 50.0f, 300.0f, "Blue");
+        return rightLeg;
     }
-
-    /*
-    public Polygon getHat(){
-        return drawLine(25.0f, 0.0f, 25.0f, 25.0f, "Blue");
-    }
-    */
 
     private Line drawLine(float startX, float startY, float endX, float endY, String color){
         Line line = new Line();

@@ -100,6 +100,10 @@ public class GameController {
 		userInputLabel.textProperty().bind(Bindings.format("%s", placeHolder));
 	}
 
+    /**
+     * drawHangman objects before the secreen is displayed!
+     * and Set initial variables within the DrawCrontroller Class
+     */
 	private void drawHangman() {
 		logger.info("in Drawing");
     	try{

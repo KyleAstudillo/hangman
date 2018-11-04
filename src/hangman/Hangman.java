@@ -40,7 +40,6 @@ public class Hangman extends Application {
         logger.info("Loading Hangman.css");
 		scene.getStylesheets().add(getClass().getResource("Hangman.css").toExternalForm());
 		primaryStage.setScene(scene);
-
         logger.info("Presenting Application");
         primaryStage.show();
 	}
