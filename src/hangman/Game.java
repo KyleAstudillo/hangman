@@ -187,7 +187,25 @@ public class Game {
 		gameState.setValue(!gameState.getValue());
 	}
 
-	public void reset() {}
+	public void reset() {
+		gameStatus.addListener(new ChangeListener<GameStatus>() {
+			@Override
+			public void changed(ObservableValue<? extends GameStatus> observable,
+								GameStatus oldValue, GameStatus newValue) {
+				if (gameStatus.get() != GameStatus.OPEN) {
+					log("in Game: in changed");
+					//currentPlayer.set(null);
+				}
+			}
+		});
+		setRandomWord();
+		prepTmpAnswer();
+		prepLetterAndPosArray();
+		moves = 0;
+		gameState.setValue(false); // initial state
+		this.drawController = drawController;
+		createGameStatusBinding();
+	}
 
 	public int numOfTries() {
 		return 6; // TODO, fix me
