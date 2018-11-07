@@ -120,6 +120,20 @@ public class Game {
 		return gameStatus.get();
 	}
 
+	public String initializePlaceHolder(){
+		String placeHolder = "";
+		for(int i=0; i<answer.length() ;i++){
+			placeHolder += "_ ";
+		}
+		return placeHolder;
+	}
+	public String updatePlaceHolder(String placeHolder){
+		StringBuilder sb1 = new StringBuilder(placeHolder);
+		if(index == 0) {
+			sb1.setCharAt(index, answer.charAt(index));
+		}else {sb1.setCharAt(index*2, answer.charAt(index));}
+		return sb1.toString();
+	}
 	private void setRandomWord() {
         log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);

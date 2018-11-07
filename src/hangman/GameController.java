@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadFactory;
 
 import hangman.controller.DrawController;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ public class GameController {
     //Game Code
 	private final ExecutorService executorService;
 	private final Game game;
+	private String placeHolder;
 	
 	public GameController(Game game, DrawController drawController) {
 		this.game = game;
@@ -67,8 +69,11 @@ public class GameController {
 				if(newValue.length() > 0) {
 					System.out.print(newValue);
 					game.makeMove(newValue);
+					placeHolder = game.updatePlaceHolder(placeHolder);
+					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 					textField.clear();
 				}
+
 			}
 		});
 	}
@@ -91,13 +96,8 @@ public class GameController {
 	}
 
 	private void setUpUserInputLabelBinding(){
-		int answerLength = game.getAnswer().length();
-		String placeHolder = "";
-		for(int i=0; i<answerLength ;i++){
-			placeHolder += "_ ";
-		}
-		System.out.print(javafx.scene.text.Font.getFamilies());
-		userInputLabel.textProperty().bind(Bindings.format("%s", placeHolder));
+		placeHolder = game.initializePlaceHolder();
+		userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 	}
 
     /**
