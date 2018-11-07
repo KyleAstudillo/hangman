@@ -1,5 +1,6 @@
 package hangman;
 
+import hangman.Networking.*;
 import hangman.controller.DrawController;
 import javafx.beans.Observable;
 import javafx.beans.binding.ObjectBinding;
@@ -17,10 +18,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Game {
+public class Game implements GameActionEven {
 
 	private static final Logger logger = LogManager.getLogger("Game");
 
@@ -33,6 +33,10 @@ public class Game {
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
 	private DrawController drawController;
+	private NetworkHelper networkHelper;
+	private World world = new World();
+	private BoringClient client;
+	private Thread thread;
 
 	public enum GameStatus {
 		GAME_OVER {
@@ -65,7 +69,7 @@ public class Game {
 		}
 	}
 
-	public Game(DrawController drawController) {
+	public Game(DrawController drawController, NetworkHelper networkHelper) {
 		gameStatus = new ReadOnlyObjectWrapper<GameStatus>(this, "gameStatus", GameStatus.OPEN);
 		gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
@@ -83,10 +87,36 @@ public class Game {
 		moves = 0;
 		gameState.setValue(false); // initial state
         this.drawController = drawController;
+        this.networkHelper = networkHelper;
+        world.addListener(this);
+        if(networkHelper.getOnline()){
+            client = new BoringClient(networkHelper, world);
+        }
 		createGameStatusBinding();
+        thread = new Thread(client);
+		thread.start();
 	}
 
-	private void createGameStatusBinding() {
+    @Override
+    public synchronized void actionHappen() {
+	    logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
+	    Action action = world.getAction();
+        switch (action.getActionTag()){
+            case SEND:
+                this.makeMove(action);
+                break;
+            case EXIT:
+                this.reset();
+                break;
+            case RESTART:
+                this.reset();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void createGameStatusBinding() {
 		List<Observable> allObservableThings = new ArrayList<>();
 		ObjectBinding<GameStatus> gameStatusBinding = new ObjectBinding<GameStatus>() {
 			{
@@ -149,7 +179,8 @@ public class Game {
 		}*/
         log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
-		answer = words.get(randomNum);
+		//answer = words.get(randomNum);
+        answer = "apple";
 		log("Word is " + answer);
 		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
@@ -184,6 +215,7 @@ public class Game {
 		return index;
 	}
 
+
 	private int update(String input) {
         log("in update: ");
 		int index = getValidIndex(input);
@@ -208,8 +240,19 @@ public class Game {
         }
     }
 
+    //Server makeMove
+    public void makeMove(Action action) {
+        log("in SERVER makeMove: " + action.getExtra());
+        index = update(action.getExtra());
+        // this will toggle the state of the game
+        gameState.setValue(!gameState.getValue());
+    }
+
 	public void makeMove(String letter) {
-		log("in makeMove: " + letter);
+		log("in CLIENT makeMove: " + letter);
+        if(networkHelper.getOnline()) {
+            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.SEND, String.valueOf(letter.charAt(0))));
+        }
 		index = update(letter);
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
@@ -236,7 +279,7 @@ public class Game {
 	}
 
 	public int numOfTries() {
-		return 6; // TODO, fix me
+		return 6;
 	}
 	public int getMoves(){return moves;}
 
