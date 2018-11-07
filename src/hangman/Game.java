@@ -179,8 +179,7 @@ public class Game implements GameActionEven {
 		}*/
         log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
-		//answer = words.get(randomNum);
-        answer = "apple";
+		answer = words.get(randomNum);
 		log("Word is " + answer);
 		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
