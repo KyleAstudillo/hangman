@@ -22,7 +22,7 @@ public class HangmanCharacter {
     private float width = 0;
     private float height = 0;
     private String color = "EE7AEB";
-    private String hiddenColor = "FFFFFF";
+    private String hiddenColor = "aqua";
 
 
     Pane pane;
@@ -85,12 +85,12 @@ public class HangmanCharacter {
         this.pane = pane;
         pane.getChildren().add(getNoose());
         pane.getChildren().add(getNoose2());
-        pane.getChildren().add(getHead());
-        pane.getChildren().add(getBody());
         pane.getChildren().add(getRightLeg());
         pane.getChildren().add(getLeftLeg());
         pane.getChildren().add(getRightArm());
         pane.getChildren().add(getLeftArm());
+        pane.getChildren().add(getBody());
+        pane.getChildren().add(getHead());
     }
 
     public void draw(int numMov, int mov, float width, float height){
