@@ -11,8 +11,14 @@ import javafx.beans.value.ObservableValue;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
@@ -121,9 +127,31 @@ public class Game {
 	}
 
 	private void setRandomWord() {
+		ArrayList<String> words = new ArrayList<>();
+		int linecount = 0;
+		try {
+			BufferedReader bf = new BufferedReader(new FileReader("words.txt"));
+			String line;
+			while ((line = bf.readLine()) != null) {
+				linecount++;
+				words.add(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		int randomNum = ThreadLocalRandom.current().nextInt(0,  linecount + 1);
+
+		/*for(String word:words){
+			System.out.println(word);
+		}*/
         log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
-		answer = "apple";//words[idx].trim(); // remove new line character
+		answer = words.get(randomNum);
+		log("Word is " + answer);
+		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
 
 	private void prepTmpAnswer() {
