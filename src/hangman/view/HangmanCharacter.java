@@ -158,13 +158,13 @@ public class HangmanCharacter {
 
     public void stopTranslation(){
         logger.info("***** SET TRANSLATION");
-        transitionHead.stop();
-        transitionbody.stop();
-        transitionleftArm.stop();
-        transitionrightArm.stop();
-        transitionleftLeg.stop();
-        transitionrightLeg.stop();
-        transitionNoose.stop();
+        transitionHead.pause();
+        transitionbody.pause();
+        transitionleftArm.pause();
+        transitionrightArm.pause();
+        transitionleftLeg.pause();
+        transitionrightLeg.pause();
+        transitionNoose.pause();
     }
 
     public Circle getHead(){

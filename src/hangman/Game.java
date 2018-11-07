@@ -106,10 +106,10 @@ public class Game implements GameActionEven {
                 this.makeMove(action);
                 break;
             case EXIT:
-                this.reset();
+                this.reset(action);
                 break;
             case RESTART:
-                this.reset();
+                this.reset(action);
                 break;
             default:
                 break;
@@ -185,6 +185,12 @@ public class Game implements GameActionEven {
 		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
 
+    private void setWord(Action action) {
+        log("in setRandomWord: ");
+        answer = action.getExtra();
+        log("Word is " + answer);
+    }
+
 	private void prepTmpAnswer() {
         log("in PrepTempAnswer: ");
 		StringBuilder sb = new StringBuilder();
@@ -248,6 +254,7 @@ public class Game implements GameActionEven {
         gameState.setValue(!gameState.getValue());
     }
 
+    //ClientMake Move
 	public void makeMove(String letter) {
 		log("in CLIENT makeMove: " + letter);
         if(networkHelper.getOnline()) {
@@ -258,6 +265,17 @@ public class Game implements GameActionEven {
 		gameState.setValue(!gameState.getValue());
 	}
 
+	//Server Reset()
+    public void reset(Action action) {
+        setWord(action);
+        prepTmpAnswer();
+        prepLetterAndPosArray();
+        moves = 0;
+        gameState.setValue(false); // initial state
+        createGameStatusBinding();
+    }
+
+	//Client Reset
 	public void reset() {
 		gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
@@ -275,6 +293,9 @@ public class Game implements GameActionEven {
 		moves = 0;
 		gameState.setValue(false); // initial state
 		this.drawController = drawController;
+        if(networkHelper.getOnline()) {
+            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.RESTART, answer));
+        }
 		createGameStatusBinding();
 	}
 
