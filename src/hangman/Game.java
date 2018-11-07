@@ -158,7 +158,7 @@ public class Game implements GameActionEven {
 
 	public String initializePlaceHolder(){
 		String placeHolder = "";
-		for(int i=0; i<answer.length() ;i++){
+		for(int i=0; i < answer.length() ;i++){
 			placeHolder += "_ ";
 		}
 		return placeHolder;

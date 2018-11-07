@@ -116,7 +116,8 @@ public class GameController {
 		
 	@FXML 
 	private void newHangman() {
-		game.reset();
+	    game.reset();
+	    setUpUserInputLabelBinding();
 	}
 
 	@FXML

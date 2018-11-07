@@ -3,11 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="28d65284-9c77-4d1d-9fe3-8b6cbf94ef86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Hangman.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Hangman.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/controller/DrawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/controller/DrawController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/view/HangmanCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/view/HangmanCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hangman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hangman/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/GameController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,6 +101,30 @@
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="30" />
+          <entry key="txt" value="117" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="30" />
+          <entry key="PLAIN_TEXT" value="117" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="4" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="4" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FavoritesManager">
@@ -100,55 +135,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="-255">
               <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-749">
-              <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+            <state relative-caret-position="108">
+              <caret line="119" column="37" lean-forward="true" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="169" column="36" selection-start-line="169" selection-start-column="36" selection-end-line="169" selection-end-column="36" />
+            <state relative-caret-position="193">
+              <caret line="163" selection-start-line="163" selection-end-line="163" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-            </state>
+            <state relative-caret-position="-170" />
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -200,6 +216,8 @@
       <find>reset</find>
       <find>setrandom</find>
       <find>random</find>
+      <find>new gam</find>
+      <find>newh</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/hangman/controller/drawHangmanController.java" />
         <option value="$PROJECT_DIR$/src/hangman/controller/DrawHangmanController.java" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.css" />
-        <option value="$PROJECT_DIR$/src/hangman/GameController.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/ActionTag.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/Action.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/NetworkHelper.java" />
@@ -230,8 +247,9 @@
         <option value="$PROJECT_DIR$/src/hangman/Networking/BoringClient.java" />
         <option value="$PROJECT_DIR$/src/hangman/controller/DrawController.java" />
         <option value="$PROJECT_DIR$/src/hangman/view/HangmanCharacter.java" />
-        <option value="$PROJECT_DIR$/src/hangman/Game.java" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.java" />
+        <option value="$PROJECT_DIR$/src/hangman/Game.java" />
+        <option value="$PROJECT_DIR$/src/hangman/GameController.java" />
       </list>
     </option>
   </component>
@@ -409,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541626653459</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made the place holder successfully dynamic. just trying to figure out how to reset when new game is started.">
+      <created>1541627617645</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1541627617645</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -454,8 +479,8 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39901477" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.20197044" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39846155" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40153846" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -517,7 +542,20 @@
     <MESSAGE value="Kyle: Changed Drawing function hidden color and zframes" />
     <MESSAGE value="Kyle: Added Networking Logic to send Reset to server&#10;and new random word to sync across clients" />
     <MESSAGE value="Kyle: Undid random answer chooser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kyle: Undid random answer chooser" />
+    <MESSAGE value="Made the place holder successfully dynamic. just trying to figure out how to reset when new game is started." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the place holder successfully dynamic. just trying to figure out how to reset when new game is started." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hangman/Game.java</url>
+          <line>159</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tests/TestGame.java">
@@ -598,13 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -614,10 +645,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -656,17 +683,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
+    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-749">
-          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+        <state relative-caret-position="-255">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170" />
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/words.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="169" column="36" selection-start-line="169" selection-start-column="36" selection-end-line="169" selection-end-column="36" />
+        <state relative-caret-position="193">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="1657" selection-start-line="1657" selection-end-line="1657" />
+          <folding>
+            <element signature="e#66921#66922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="2494" selection-start-line="2494" selection-end-line="2494" />
+          <folding>
+            <element signature="e#66617#66618#0" expanded="true" />
+            <element signature="e#66663#66664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/scene/control/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="462" selection-start-line="462" selection-end-line="462" />
+          <folding>
+            <element signature="e#15741#15742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="119" column="37" lean-forward="true" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
         </state>
       </provider>
     </entry>
