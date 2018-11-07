@@ -1,5 +1,6 @@
 package hangman;
 
+import hangman.Networking.*;
 import hangman.controller.DrawController;
 import javafx.beans.Observable;
 import javafx.beans.binding.ObjectBinding;
@@ -11,10 +12,15 @@ import javafx.beans.value.ObservableValue;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Game {
+public class Game implements GameActionEven {
 
 	private static final Logger logger = LogManager.getLogger("Game");
 
@@ -27,6 +33,10 @@ public class Game {
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
 	private DrawController drawController;
+	private NetworkHelper networkHelper;
+	private World world = new World();
+	private BoringClient client;
+	private Thread thread;
 
 	public enum GameStatus {
 		GAME_OVER {
@@ -59,7 +69,7 @@ public class Game {
 		}
 	}
 
-	public Game(DrawController drawController) {
+	public Game(DrawController drawController, NetworkHelper networkHelper) {
 		gameStatus = new ReadOnlyObjectWrapper<GameStatus>(this, "gameStatus", GameStatus.OPEN);
 		gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
@@ -77,10 +87,36 @@ public class Game {
 		moves = 0;
 		gameState.setValue(false); // initial state
         this.drawController = drawController;
+        this.networkHelper = networkHelper;
+        world.addListener(this);
+        if(networkHelper.getOnline()){
+            client = new BoringClient(networkHelper, world);
+        }
 		createGameStatusBinding();
+        thread = new Thread(client);
+		thread.start();
 	}
 
-	private void createGameStatusBinding() {
+    @Override
+    public synchronized void actionHappen() {
+	    logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
+	    Action action = world.getAction();
+        switch (action.getActionTag()){
+            case SEND:
+                this.makeMove(action);
+                break;
+            case EXIT:
+                this.reset(action);
+                break;
+            case RESTART:
+                this.reset(action);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void createGameStatusBinding() {
 		List<Observable> allObservableThings = new ArrayList<>();
 		ObjectBinding<GameStatus> gameStatusBinding = new ObjectBinding<GameStatus>() {
 			{
@@ -135,10 +171,38 @@ public class Game {
 		return sb1.toString();
 	}
 	private void setRandomWord() {
+		ArrayList<String> words = new ArrayList<>();
+		int linecount = 0;
+		try {
+			BufferedReader bf = new BufferedReader(new FileReader("words.txt"));
+			String line;
+			while ((line = bf.readLine()) != null) {
+				linecount++;
+				words.add(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		int randomNum = ThreadLocalRandom.current().nextInt(0,  linecount + 1);
+
+		/*for(String word:words){
+			System.out.println(word);
+		}*/
         log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
-		answer = "apple";//words[idx].trim(); // remove new line character
+		answer = words.get(randomNum);
+		log("Word is " + answer);
+		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
+
+    private void setWord(Action action) {
+        log("in setRandomWord: ");
+        answer = action.getExtra();
+        log("Word is " + answer);
+    }
 
 	private void prepTmpAnswer() {
         log("in PrepTempAnswer: ");
@@ -170,6 +234,7 @@ public class Game {
 		return index;
 	}
 
+
 	private int update(String input) {
         log("in update: ");
 		int index = getValidIndex(input);
@@ -194,13 +259,36 @@ public class Game {
         }
     }
 
+    //Server makeMove
+    public void makeMove(Action action) {
+        log("in SERVER makeMove: " + action.getExtra());
+        index = update(action.getExtra());
+        // this will toggle the state of the game
+        gameState.setValue(!gameState.getValue());
+    }
+
+    //ClientMake Move
 	public void makeMove(String letter) {
-		log("in makeMove: " + letter);
+		log("in CLIENT makeMove: " + letter);
+        if(networkHelper.getOnline()) {
+            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.SEND, String.valueOf(letter.charAt(0))));
+        }
 		index = update(letter);
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
 	}
 
+	//Server Reset()
+    public void reset(Action action) {
+        setWord(action);
+        prepTmpAnswer();
+        prepLetterAndPosArray();
+        moves = 0;
+        gameState.setValue(false); // initial state
+        createGameStatusBinding();
+    }
+
+	//Client Reset
 	public void reset() {
 		gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
@@ -218,11 +306,14 @@ public class Game {
 		moves = 0;
 		gameState.setValue(false); // initial state
 		this.drawController = drawController;
+        if(networkHelper.getOnline()) {
+            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.RESTART, answer));
+        }
 		createGameStatusBinding();
 	}
 
 	public int numOfTries() {
-		return 6; // TODO, fix me
+		return 7;
 	}
 	public int getMoves(){return moves;}
 

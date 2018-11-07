@@ -2,6 +2,7 @@ package hangman;
 
 import java.io.IOException;
 
+import hangman.Networking.NetworkHelper;
 import hangman.controller.DrawController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ public class Hangman extends Application {
 	private boolean show = true;
 	private int width = 500;
 	private int height = 500;
+	NetworkHelper networkHelper = new NetworkHelper("127.0.0.1", false, "Kyle", 9003);
 
     public Hangman(boolean show){
         this.show = show;
@@ -30,7 +32,7 @@ public class Hangman extends Application {
 	public void start(final Stage primaryStage) throws IOException {
         DrawController drawController = new DrawController();
 		logger.info("Starting Application");
-		final Game game = new Game(drawController);
+		final Game game = new Game(drawController, networkHelper);
         logger.info("Loading Hangman.fxml");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Hangman.fxml"));
         logger.info("Setting Controller");
