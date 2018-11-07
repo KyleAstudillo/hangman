@@ -279,7 +279,7 @@ public class Game implements GameActionEven {
 	}
 
 	public int numOfTries() {
-		return 6;
+		return 7;
 	}
 	public int getMoves(){return moves;}
 

@@ -18,7 +18,7 @@ public class Hangman extends Application {
 	private boolean show = true;
 	private int width = 500;
 	private int height = 500;
-	NetworkHelper networkHelper = new NetworkHelper("127.0.0.1", false, "Tristan", 9003);
+	NetworkHelper networkHelper = new NetworkHelper("127.0.0.1", false, "Ayla", 9003);
 
     public Hangman(boolean show){
         this.show = show;

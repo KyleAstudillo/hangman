@@ -27,6 +27,7 @@ public class DrawController {
     //init is called after GameController has initialized but before the viewport is init
     public void init(VBox board){
         this.board = board;
+        man.init(pane);
     }
 
     public void draw(int numMov, int mov){
@@ -38,7 +39,7 @@ public class DrawController {
         height = 500.0f;
         pane.setPrefWidth(width);
         pane.setPrefHeight(height);
-        man.draw(pane, numMov, mov, width, height);
+        man.draw(numMov, mov, width, height);
         if(!board.getChildren().contains(pane)) {
             board.getChildren().add(pane);
         }

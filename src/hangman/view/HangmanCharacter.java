@@ -22,8 +22,10 @@ public class HangmanCharacter {
     private float width = 0;
     private float height = 0;
     private String color = "EE7AEB";
+    private String hiddenColor = "FFFFFF";
 
 
+    Pane pane;
     //Nodes
     private Circle head;
     private Line body;
@@ -32,6 +34,7 @@ public class HangmanCharacter {
     private Line leftLeg;
     private Line rightLeg;
     private Line noose;
+    private Line noose2;
 
     //Animation Translations
     private TranslateTransition transitionHead = new TranslateTransition();
@@ -55,17 +58,18 @@ public class HangmanCharacter {
         //head
         head = new Circle(250, 100, 0);//head
         head.setRadius(50);//radius of head
-        head.setStyle("-fx-stroke:" + color);//circle color
+        head.setStyle("-fx-stroke:" + hiddenColor);//circle color
         head.setFill(null);//makes the head empty(no brain haha)
         head.setStrokeWidth(5);//sets the line thickness of circle (head)
 
         //body parts
-        noose = drawLine(width/2.0f, -300.f, width/2.0f, 50.0f, color);
-        body = drawLine(width/2.0f, 250f, width/2.0f, 150f, color);
-        leftArm = drawLine(width/2.0f, 200.0f, 200.0f, 170.0f, color);
-        rightArm = drawLine(width/2.0f, 200.0f, width/2.0f + 50.0f, 170.0f, color);
-        leftLeg = drawLine(width/2.0f, 250.0f,200.0f, 300.0f, color);
-        rightLeg = drawLine(width/2.0f, 250.0f, width/2.0f + 50.0f, 300.0f, color);
+        noose = drawLine(width/2.0f, 0.f, width/2.0f, 50.0f, hiddenColor);
+        noose2 = drawLine(width/2.0f, 0.f, width/2.0f, 50.0f, hiddenColor);
+        body = drawLine(width/2.0f, 250f, width/2.0f, 150f, hiddenColor);
+        leftArm = drawLine(width/2.0f, 200.0f, 200.0f, 170.0f, hiddenColor);
+        rightArm = drawLine(width/2.0f, 200.0f, width/2.0f + 50.0f, 170.0f, hiddenColor);
+        leftLeg = drawLine(width/2.0f, 250.0f,200.0f, 300.0f, hiddenColor);
+        rightLeg = drawLine(width/2.0f, 250.0f, width/2.0f + 50.0f, 300.0f, hiddenColor);
 
         //Setup translations
         setTransition(transitionHead, head);
@@ -77,33 +81,56 @@ public class HangmanCharacter {
         setTransition(transitionNoose, noose);
     }
 
-    public void draw(Pane pane, int numMov, int mov, float width, float height){
+    public void init(Pane pane){
+        this.pane = pane;
+        pane.getChildren().add(getNoose());
+        pane.getChildren().add(getNoose2());
+        pane.getChildren().add(getHead());
+        pane.getChildren().add(getBody());
+        pane.getChildren().add(getRightLeg());
+        pane.getChildren().add(getLeftLeg());
+        pane.getChildren().add(getRightArm());
+        pane.getChildren().add(getLeftArm());
+    }
+
+    public void draw(int numMov, int mov, float width, float height){
         logger.info("draw method(numMov: " + numMov + ", mov: " + mov + ", width: " + width+", height: " + height + ")");
         this.width = width;
         this.height = height;
         switch (mov) {
-            case 6:
-                pane.getChildren().add(getLeftArm());
+            case 7:
+                getLeftArm().setStyle("-fx-stroke:" + color);
                 playTranslation();
                 break;
+            case 6:
+                getRightArm().setStyle("-fx-stroke:" + color);
+                break;
             case 5:
-                pane.getChildren().add(getRightArm());
+                getLeftLeg().setStyle("-fx-stroke:" + color);
                 break;
             case 4:
-                pane.getChildren().add(getLeftLeg());
+                getRightLeg().setStyle("-fx-stroke:" + color);
                 break;
             case 3:
-                pane.getChildren().add(getRightLeg());
+                getBody().setStyle("-fx-stroke:" + color);
                 break;
             case 2:
-                pane.getChildren().add(getBody());
+                getHead().setStyle("-fx-stroke:" + color);
                 break;
-            case 1:
-                pane.getChildren().add(getHead());
+            case 1: //was working but stopped drawing but no that much of a problem
+                getNoose().setStyle("-fx-stroke:" + color);
+                getNoose2().setStyle("-fx-stroke:" + color);
                 break;
-            case 0: //was working but stopped drawing but no that much of a problem
-                pane.getChildren().add(getNoose());
-                break;
+            case 0:
+                stopTranslation();
+                getNoose().setStyle("-fx-stroke:" + hiddenColor);
+                getNoose2().setStyle("-fx-stroke:" + hiddenColor);
+                getLeftArm().setStyle("-fx-stroke:" + hiddenColor);
+                getRightArm().setStyle("-fx-stroke:" + hiddenColor);
+                getLeftLeg().setStyle("-fx-stroke:" + hiddenColor);
+                getRightLeg().setStyle("-fx-stroke:" + hiddenColor);
+                getBody().setStyle("-fx-stroke:" + hiddenColor);
+                getHead().setStyle("-fx-stroke:" + hiddenColor);
             default:
                 break;
         }
@@ -129,6 +156,17 @@ public class HangmanCharacter {
         transitionNoose.play();
     }
 
+    public void stopTranslation(){
+        logger.info("***** SET TRANSLATION");
+        transitionHead.stop();
+        transitionbody.stop();
+        transitionleftArm.stop();
+        transitionrightArm.stop();
+        transitionleftLeg.stop();
+        transitionrightLeg.stop();
+        transitionNoose.stop();
+    }
+
     public Circle getHead(){
         logger.info("getHead");
         return head;
@@ -137,6 +175,10 @@ public class HangmanCharacter {
     public Line getNoose(){
         logger.info("getNoose");
         return noose;
+    }
+    public Line getNoose2(){
+        logger.info("getNoose2");
+        return noose2;
     }
 
     public Line getBody(){
