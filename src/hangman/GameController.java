@@ -69,7 +69,9 @@ public class GameController {
 				if(newValue.length() > 0) {
 					System.out.print(newValue);
 					game.makeMove(newValue);
+                    // updates placeholder when texfield changes
 					placeHolder = game.updatePlaceHolder(placeHolder);
+                    // rebinds it to the placeholder with _ replaced with letter
 					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 					textField.clear();
 				}
@@ -95,7 +97,7 @@ public class GameController {
 		*/
 	}
 
-	private void setUpUserInputLabelBinding(){
+	private void setUpUserInputLabelBinding(){ // sets the placeholder to have equal number of _ as letters in answer
 		placeHolder = game.initializePlaceHolder();
 		userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 	}
@@ -115,7 +117,7 @@ public class GameController {
 	}
 		
 	@FXML 
-	private void newHangman() {
+	private void newHangman() { // resets the game and starts the game with a new placeholder fro the word
 	    game.reset();
 	    setUpUserInputLabelBinding();
 	}

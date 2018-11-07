@@ -163,6 +163,7 @@ public class Game implements GameActionEven {
 		}
 		return placeHolder;
 	}
+
 	public String updatePlaceHolder(String placeHolder){
 		StringBuilder sb1 = new StringBuilder(placeHolder);
 		if(index == 0) {
@@ -170,6 +171,7 @@ public class Game implements GameActionEven {
 		}else {sb1.setCharAt(index*2, answer.charAt(index));}
 		return sb1.toString();
 	}
+
 	private void setRandomWord() {
 		ArrayList<String> words = new ArrayList<>();
 		int linecount = 0;
