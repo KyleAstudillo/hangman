@@ -69,13 +69,14 @@ public class GameController {
 		textField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-				if(newValue.length() > 0) {
-					textField.clear();
-					game.makeMove(newValue);
+				if(newValue.length() > 0 && newValue.length() > oldValue.length()) {
+
+					game.makeMove(newValue.substring(oldValue.length()));
 					// updates placeholder when textfield changes
 					placeHolder = game.updatePlaceHolder(placeHolder);
 					// rebinds it to the placeholder with _ replaced with letter
 					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
+					//textField.clear();
 
 				}
 
