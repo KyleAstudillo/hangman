@@ -1,3 +1,6 @@
+//	Game Controller
+//
+//
 package hangman;
 
 import java.io.IOException;
@@ -21,11 +24,11 @@ public class GameController {
 
 	private static final Logger logger = LogManager.getLogger("GameController");
 
-    //Game Code
+	//Game Code
 	private final ExecutorService executorService;
 	private final Game game;
 	private String placeHolder;
-	
+
 	public GameController(Game game, DrawController drawController) {
 		this.game = game;
 		executorService = Executors.newSingleThreadExecutor(new ThreadFactory() {
@@ -54,7 +57,7 @@ public class GameController {
 	//Controllers
 	private DrawController drawController;
 
-    public void initialize() throws IOException {
+	public void initialize() throws IOException {
 		logger.info("in initialize");
 		drawHangman();
 		addTextBoxListener();
@@ -67,13 +70,13 @@ public class GameController {
 			@Override
 			public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
 				if(newValue.length() > 0) {
-					System.out.print(newValue);
-					game.makeMove(newValue);
-                    // updates placeholder when texfield changes
-					placeHolder = game.updatePlaceHolder(placeHolder);
-                    // rebinds it to the placeholder with _ replaced with letter
-					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 					textField.clear();
+					game.makeMove(newValue);
+					// updates placeholder when textfield changes
+					placeHolder = game.updatePlaceHolder(placeHolder);
+					// rebinds it to the placeholder with _ replaced with letter
+					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
+
 				}
 
 			}
@@ -82,7 +85,7 @@ public class GameController {
 
 	private void setUpStatusLabelBindings() {
 
-        logger.info("in setUpStatusLabelBindings");
+		logger.info("in setUpStatusLabelBindings");
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
 		/*
@@ -102,24 +105,24 @@ public class GameController {
 		userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
 	}
 
-    /**
-     * drawHangman objects before the secreen is displayed!
-     * and Set initial variables within the DrawCrontroller Class
-     */
+	/**
+	 * drawHangman objects before the secreen is displayed!
+	 * and Set initial variables within the DrawCrontroller Class
+	 */
 	private void drawHangman() {
 		logger.info("in Drawing");
-    	try{
-    	    drawController.init(board);
+		try{
+			drawController.init(board);
 			drawController.draw(game.numOfTries(), game.getMoves());
 		}catch (Exception e){
 
 		}
 	}
-		
-	@FXML 
+
+	@FXML
 	private void newHangman() { // resets the game and starts the game with a new placeholder fro the word
-	    game.reset();
-	    setUpUserInputLabelBinding();
+		game.reset();
+		setUpUserInputLabelBinding();
 	}
 
 	@FXML

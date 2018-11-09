@@ -1,3 +1,6 @@
+// game.java
+//
+//
 package hangman;
 
 import hangman.Networking.*;
@@ -86,37 +89,37 @@ public class Game implements GameActionEven {
 		prepLetterAndPosArray();
 		moves = 0;
 		gameState.setValue(false); // initial state
-        this.drawController = drawController;
-        this.networkHelper = networkHelper;
-        world.addListener(this);
-        if(networkHelper.getOnline()){
-            client = new BoringClient(networkHelper, world);
-        }
+		this.drawController = drawController;
+		this.networkHelper = networkHelper;
+		world.addListener(this);
+		if(networkHelper.getOnline()){
+			client = new BoringClient(networkHelper, world);
+		}
 		createGameStatusBinding();
-        thread = new Thread(client);
+		thread = new Thread(client);
 		thread.start();
 	}
 
-    @Override
-    public synchronized void actionHappen() {
-	    logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
-	    Action action = world.getAction();
-        switch (action.getActionTag()){
-            case SEND:
-                this.makeMove(action);
-                break;
-            case EXIT:
-                this.reset(action);
-                break;
-            case RESTART:
-                this.reset(action);
-                break;
-            default:
-                break;
-        }
-    }
+	@Override
+	public synchronized void actionHappen() {
+		logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
+		Action action = world.getAction();
+		switch (action.getActionTag()){
+			case SEND:
+				this.makeMove(action);
+				break;
+			case EXIT:
+				this.reset(action);
+				break;
+			case RESTART:
+				this.reset(action);
+				break;
+			default:
+				break;
+		}
+	}
 
-    private void createGameStatusBinding() {
+	private void createGameStatusBinding() {
 		List<Observable> allObservableThings = new ArrayList<>();
 		ObjectBinding<GameStatus> gameStatusBinding = new ObjectBinding<GameStatus>() {
 			{
@@ -140,6 +143,7 @@ public class Game implements GameActionEven {
 				}
 				else {
 					moves++;
+					drawHangmanFrame();
 					log("bad guess");
 					return GameStatus.BAD_GUESS;
 					//printHangman();
@@ -166,9 +170,9 @@ public class Game implements GameActionEven {
 
 	public String updatePlaceHolder(String placeHolder){
 		StringBuilder sb1 = new StringBuilder(placeHolder);
-		if(index == 0) {
+		if(index == 0 && index != -1) {
 			sb1.setCharAt(index, answer.charAt(index));
-		}else {sb1.setCharAt(index*2, answer.charAt(index));}
+		}else if (index != -1){sb1.setCharAt(index*2, answer.charAt(index));}
 		return sb1.toString();
 	}
 
@@ -193,21 +197,21 @@ public class Game implements GameActionEven {
 		/*for(String word:words){
 			System.out.println(word);
 		}*/
-        log("in setRandomWord: ");
+		log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
 		answer = words.get(randomNum);
 		log("Word is " + answer);
 		//answer = "apple";//words[idx].trim(); // remove new line character
 	}
 
-    private void setWord(Action action) {
-        log("in setRandomWord: ");
-        answer = action.getExtra();
-        log("Word is " + answer);
-    }
+	private void setWord(Action action) {
+		log("in setRandomWord: ");
+		answer = action.getExtra();
+		log("Word is " + answer);
+	}
 
 	private void prepTmpAnswer() {
-        log("in PrepTempAnswer: ");
+		log("in PrepTempAnswer: ");
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < answer.length(); i++) {
 			sb.append(" ");
@@ -216,7 +220,7 @@ public class Game implements GameActionEven {
 	}
 
 	private void prepLetterAndPosArray() {
-        log("in prepLetterAndPosArray: ");
+		log("in prepLetterAndPosArray: ");
 		letterAndPosArray = new String[answer.length()];
 		for(int i = 0; i < answer.length(); i++) {
 			letterAndPosArray[i] = answer.substring(i,i+1);
@@ -224,7 +228,7 @@ public class Game implements GameActionEven {
 	}
 
 	private int getValidIndex(String input) {
-        log("in getValidIndex: ");
+		log("in getValidIndex: ");
 		int index = -1;
 		for(int i = 0; i < letterAndPosArray.length; i++) {
 			if(letterAndPosArray[i].equals(input)) {
@@ -238,7 +242,7 @@ public class Game implements GameActionEven {
 
 
 	private int update(String input) {
-        log("in update: ");
+		log("in update: ");
 		int index = getValidIndex(input);
 		if(index != -1) {
 			StringBuilder sb = new StringBuilder(tmpAnswer);
@@ -249,50 +253,52 @@ public class Game implements GameActionEven {
 	}
 
 	private void drawHangmanFrame() {
-        log("in DrawHangmanFrame");
-        try {
-            log("*** Drawing");
-            if(this.numOfTries() >= this.getMoves()) {
-                drawController.draw(this.numOfTries(), this.getMoves());
-            }
-        } catch (Exception e){
-            log("*** Drawing Error!!!!");
-            log(e.toString());
-        }
-    }
+		log("in DrawHangmanFrame");
+		try {
+			log("*** Drawing");
+			if(this.numOfTries() >= this.getMoves()) {
+				drawController.draw(this.numOfTries(), this.getMoves());
+			}
+		} catch (Exception e){
+			log("*** Drawing Error!!!!");
+			log(e.toString());
+		}
+	}
 
-    //Server makeMove
-    public void makeMove(Action action) {
-        log("in SERVER makeMove: " + action.getExtra());
-        index = update(action.getExtra());
-        // this will toggle the state of the game
-        gameState.setValue(!gameState.getValue());
-    }
+	//Server makeMove
+	public void makeMove(Action action) {
+		log("in SERVER makeMove: " + action.getExtra());
+		index = update(action.getExtra());
+		// this will toggle the state of the game
+		gameState.setValue(!gameState.getValue());
+	}
 
-    //ClientMake Move
+	//ClientMake Move
 	public void makeMove(String letter) {
 		log("in CLIENT makeMove: " + letter);
-        if(networkHelper.getOnline()) {
-            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.SEND, String.valueOf(letter.charAt(0))));
-        }
+		if(networkHelper.getOnline()) {
+			client.communicateActionOut(new Action(networkHelper.getUsername(),
+					ActionTag.SEND, String.valueOf(letter.charAt(0))));
+		}
 		index = update(letter);
 		// this will toggle the state of the game
 		gameState.setValue(!gameState.getValue());
 	}
 
 	//Server Reset()
-    public void reset(Action action) {
-        setWord(action);
-        prepTmpAnswer();
-        prepLetterAndPosArray();
-        moves = 0;
-        gameState.setValue(false); // initial state
-        createGameStatusBinding();
-    }
+	public void reset(Action action) {
+		setWord(action);
+		prepTmpAnswer();
+		prepLetterAndPosArray();
+		moves = 0;
+		gameState.setValue(false); // initial state
+		createGameStatusBinding();
+		drawHangmanFrame();
+	}
 
 	//Client Reset
 	public void reset() {
-		gameStatus.addListener(new ChangeListener<GameStatus>() {
+		/*gameStatus.addListener(new ChangeListener<GameStatus>() {
 			@Override
 			public void changed(ObservableValue<? extends GameStatus> observable,
 								GameStatus oldValue, GameStatus newValue) {
@@ -301,17 +307,19 @@ public class Game implements GameActionEven {
 					//currentPlayer.set(null);
 				}
 			}
-		});
+		});*/
+
 		setRandomWord();
 		prepTmpAnswer();
 		prepLetterAndPosArray();
 		moves = 0;
 		gameState.setValue(false); // initial state
-		this.drawController = drawController;
-        if(networkHelper.getOnline()) {
-            client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.RESTART, answer));
-        }
+		//this.drawController = drawController;
+		if(networkHelper.getOnline()) {
+			client.communicateActionOut(new Action(networkHelper.getUsername(), ActionTag.RESTART, answer));
+		}
 		createGameStatusBinding();
+		drawHangmanFrame();
 	}
 
 	public int numOfTries() {
@@ -320,7 +328,7 @@ public class Game implements GameActionEven {
 	public int getMoves(){return moves;}
 
 	public static void log(String s) {
-        logger.info(s);
+		logger.info(s);
 	}
 
 	public String getAnswer(){
@@ -329,7 +337,7 @@ public class Game implements GameActionEven {
 
 	private GameStatus checkForWinner(int status) {
 		log("in checkForWinner");
-		drawHangmanFrame();
+
 		if(tmpAnswer.equals(answer)) {
 			log("won");
 			return GameStatus.WON;
