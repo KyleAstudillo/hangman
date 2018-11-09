@@ -69,9 +69,17 @@ public class GameController {
 		textField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-				if(newValue.length() > 0 && newValue.length() > oldValue.length()) {
+				String testValue = newValue.substring(oldValue.length());
+				boolean test = false;
+				for(int i = 0; i < oldValue.length() && !oldValue.equals(""); i++){
+					if(testValue.charAt(0) == oldValue.charAt(i)){
+						test = true;
+						break;
+					}
+				}
+				if(newValue.length() > 0 && newValue.length() > oldValue.length() && test == false) {
 
-					game.makeMove(newValue.substring(oldValue.length()));
+					game.makeMove(testValue);
 					// updates placeholder when textfield changes
 					placeHolder = game.updatePlaceHolder(placeHolder);
 					// rebinds it to the placeholder with _ replaced with letter
@@ -124,6 +132,7 @@ public class GameController {
 	private void newHangman() { // resets the game and starts the game with a new placeholder fro the word
 		game.reset();
 		setUpUserInputLabelBinding();
+		textField.clear();
 	}
 
 	@FXML

@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="28d65284-9c77-4d1d-9fe3-8b6cbf94ef86" name="Default Changelist" comment="just made it so that you can see all the letter that you have tried and no matter how many letters are in the textField it will only read the letter on the very end.">
+    <list default="true" id="28d65284-9c77-4d1d-9fe3-8b6cbf94ef86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hangman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hangman/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/GameController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -99,27 +103,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="343" />
+          <entry key="java" value="1103" />
           <entry key="txt" value="1036" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="343" />
+          <entry key="JAVA" value="1103" />
           <entry key="PLAIN_TEXT" value="1036" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="6" />
-          <entry key="java" value="5" />
+          <entry key="java" value="12" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="6" />
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="12" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -143,8 +147,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="71" column="84" lean-forward="true" selection-start-line="71" selection-start-column="84" selection-end-line="71" selection-end-column="84" />
+            <state relative-caret-position="138">
+              <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
               <folding>
                 <element signature="e#0#3491#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -158,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="282" selection-start-line="282" selection-end-line="282" />
+            <state relative-caret-position="103">
+              <caret line="267" selection-start-line="267" selection-end-line="267" />
               <folding>
                 <element signature="e#0#8617#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -176,6 +180,36 @@
                 <element signature="e#3912#3913#0" expanded="true" />
                 <element signature="e#3949#3950#0" expanded="true" />
                 <element signature="e#3979#3980#0" expanded="true" />
+                <element signature="e#8402#8403#0" expanded="true" />
+                <element signature="e#8417#8418#0" expanded="true" />
+                <element signature="e#8492#8493#0" expanded="true" />
+                <element signature="e#8513#8514#0" expanded="true" />
+                <element signature="e#8542#8543#0" expanded="true" />
+                <element signature="e#8562#8563#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hangman/view/HangmanCharacter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180">
+              <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,7 +239,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>num</find>
-      <find>draw</find>
       <find>log</find>
       <find>game.</find>
       <find>try</find>
@@ -223,6 +256,9 @@
       <find>newh</find>
       <find>gameState</find>
       <find>gameStatus</find>
+      <find>computevalue</find>
+      <find>index</find>
+      <find>draw</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -475,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541732766658</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="just made it so that you can see all the letter that you have tried and no matter how many letters are in the textField it will only read the letter on the very end.">
+      <created>1541737771271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1541737771271</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -520,8 +563,8 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39846155" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40153846" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39846155" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40153846" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -585,16 +628,17 @@
     <MESSAGE value="Kyle: Undid random answer chooser" />
     <MESSAGE value="Made the place holder successfully dynamic. just trying to figure out how to reset when new game is started." />
     <MESSAGE value="I didnt know i broke something but i fixed it. i also fixed the reset a little. now it does not add another change listener to gameStatus. it does not set this.drawController = drawController. i just commented them out. drawHangmanFrame used to delay in drawing the man by one move. so if it was a bad guess it would wait to draw the man until the next move, i made it so it draws it the moment there is a bad guess by calling the drawHangMan method in the ComputeValue method instead of the checkForWinner method. its under the if ladder for bad guess. I also put it in the reset method so that the man can reset it itself as well." />
-    <option name="LAST_COMMIT_MESSAGE" value="I didnt know i broke something but i fixed it. i also fixed the reset a little. now it does not add another change listener to gameStatus. it does not set this.drawController = drawController. i just commented them out. drawHangmanFrame used to delay in drawing the man by one move. so if it was a bad guess it would wait to draw the man until the next move, i made it so it draws it the moment there is a bad guess by calling the drawHangMan method in the ComputeValue method instead of the checkForWinner method. its under the if ladder for bad guess. I also put it in the reset method so that the man can reset it itself as well." />
+    <MESSAGE value="just made it so that you can see all the letter that you have tried and no matter how many letters are in the textField it will only read the letter on the very end." />
+    <option name="LAST_COMMIT_MESSAGE" value="just made it so that you can see all the letter that you have tried and no matter how many letters are in the textField it will only read the letter on the very end." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/hangman/GameController.java</url>
-          <line>73</line>
+          <line>74</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -667,16 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -684,27 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/view/HangmanCharacter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/view/HangTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="1333" selection-start-line="1333" selection-end-line="1333" />
         </state>
       </provider>
     </entry>
@@ -768,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -783,10 +793,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/beans/value/ObservableValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/view/HangmanCharacter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="74" column="17" lean-forward="true" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="282" selection-start-line="282" selection-end-line="282" />
+        <state relative-caret-position="103">
+          <caret line="267" selection-start-line="267" selection-end-line="267" />
           <folding>
             <element signature="e#0#8617#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -803,14 +847,30 @@
             <element signature="e#3912#3913#0" expanded="true" />
             <element signature="e#3949#3950#0" expanded="true" />
             <element signature="e#3979#3980#0" expanded="true" />
+            <element signature="e#8402#8403#0" expanded="true" />
+            <element signature="e#8417#8418#0" expanded="true" />
+            <element signature="e#8492#8493#0" expanded="true" />
+            <element signature="e#8513#8514#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="1389" selection-start-line="1389" selection-end-line="1389" />
+          <folding>
+            <element signature="e#51313#51314#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="71" column="84" lean-forward="true" selection-start-line="71" selection-start-column="84" selection-end-line="71" selection-end-column="84" />
+        <state relative-caret-position="138">
+          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
           <folding>
             <element signature="e#0#3491#0" expanded="true" />
             <element signature="imports" expanded="true" />

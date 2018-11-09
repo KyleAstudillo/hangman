@@ -33,6 +33,7 @@ public class Game implements GameActionEven {
 	private String[] words;
 	private int moves;
 	private int index;
+	private int copies;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
 	private ObjectProperty<Boolean> gameState = new ReadOnlyObjectWrapper<Boolean>();
 	private DrawController drawController;
@@ -170,9 +171,29 @@ public class Game implements GameActionEven {
 
 	public String updatePlaceHolder(String placeHolder){
 		StringBuilder sb1 = new StringBuilder(placeHolder);
+		for(int i=0; i < tmpAnswer.length();i++){
+			if(tmpAnswer.charAt(i)!= (' ') && i == 0){
+				sb1.setCharAt(i, tmpAnswer.charAt(i));
+			}
+			else if(tmpAnswer.charAt(i)!= (' ')){
+				sb1.setCharAt(i*2, tmpAnswer.charAt(i));
+			}
+		}
+		if(moves == numOfTries()){
+			for(int i=0; i < answer.length();i++){
+				if(answer.charAt(i)!= (' ') && i == 0){
+					sb1.setCharAt(i, answer.charAt(i));
+				}
+				else if(answer.charAt(i)!= (' ')){
+					sb1.setCharAt(i*2, answer.charAt(i));
+				}
+			}
+		}
+		/*
 		if(index == 0 && index != -1) {
 			sb1.setCharAt(index, answer.charAt(index));
 		}else if (index != -1){sb1.setCharAt(index*2, answer.charAt(index));}
+		*/
 		return sb1.toString();
 	}
 
@@ -243,12 +264,21 @@ public class Game implements GameActionEven {
 
 	private int update(String input) {
 		log("in update: ");
-		int index = getValidIndex(input);
-		if(index != -1) {
-			StringBuilder sb = new StringBuilder(tmpAnswer);
-			sb.setCharAt(index, input.charAt(0));
-			tmpAnswer = sb.toString();
+		for(int i = 0; i < letterAndPosArray.length; i++) {
+			if(letterAndPosArray[i].equals(input)) {
+				copies++;
+			}
 		}
+		int index;
+		do{
+			index = getValidIndex(input);
+			if (index != -1) {
+				StringBuilder sb = new StringBuilder(tmpAnswer);
+				sb.setCharAt(index, input.charAt(0));
+				tmpAnswer = sb.toString();
+				copies--;
+			}
+		}while(copies != 0);
 		return index;
 	}
 
