@@ -5,6 +5,7 @@ package hangman;
 
 import hangman.Networking.*;
 import hangman.controller.DrawController;
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ObjectProperty;
@@ -12,6 +13,7 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -300,7 +302,20 @@ public class Game implements GameActionEven {
 		log("in SERVER makeMove: " + action.getExtra());
 		index = update(action.getExtra());
 		// this will toggle the state of the game
-		gameState.setValue(!gameState.getValue());
+		//gameState.setValue(!gameState.getValue());
+		Task<Void> task = new Task<Void>() {
+
+			@Override protected Void call() throws Exception {
+
+				Platform.runLater(new Runnable() {
+					@Override public void run() {
+						gameState.setValue(!gameState.getValue());
+					}
+				});
+				return null;
+			}
+		};
+		task.run();
 	}
 
 	//ClientMake Move
