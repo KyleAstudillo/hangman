@@ -34,6 +34,7 @@ public class Game implements GameActionEven {
 	private String[] letterAndPosArray;
 	private String[] words;
 	private int moves;
+	private int totalMoves;
 	private int index;
 	private int copies;
 	private final ReadOnlyObjectWrapper<GameStatus> gameStatus;
@@ -91,6 +92,7 @@ public class Game implements GameActionEven {
 		prepTmpAnswer();
 		prepLetterAndPosArray();
 		moves = 0;
+		totalMoves = 0;
 		gameState.setValue(false); // initial state
 		this.drawController = drawController;
 		this.networkHelper = networkHelper;
@@ -132,11 +134,15 @@ public class Game implements GameActionEven {
 			public GameStatus computeValue() {
 				log("in computeValue");
 				GameStatus check = checkForWinner(index);
+				log("temporary answer is " + tmpAnswer);
+				log("index is " + index);
+				log("total bad moves done is " + moves);
+				log("total moves done is " + totalMoves);
 				if(check != null ) {
 					return check;
 				}
 
-				if(tmpAnswer.trim().length() == 0){
+				if(tmpAnswer.trim().length() == 0 && totalMoves == 0){
 					log("new game");
 					return GameStatus.OPEN;
 				}
@@ -144,13 +150,14 @@ public class Game implements GameActionEven {
 					log("good guess");
 					return GameStatus.GOOD_GUESS;
 				}
-				else {
+				else if(index == -1 && totalMoves > 0){
 					moves++;
 					drawHangmanFrame();
 					log("bad guess");
 					return GameStatus.BAD_GUESS;
 					//printHangman();
 				}
+				return GameStatus.BAD_GUESS;
 			}
 		};
 		gameStatus.bind(gameStatusBinding);
@@ -300,6 +307,7 @@ public class Game implements GameActionEven {
 	//Server makeMove
 	public void makeMove(Action action) {
 		log("in SERVER makeMove: " + action.getExtra());
+		totalMoves++;
 		index = update(action.getExtra());
 		// this will toggle the state of the game
 		//gameState.setValue(!gameState.getValue());
@@ -321,6 +329,7 @@ public class Game implements GameActionEven {
 	//ClientMake Move
 	public void makeMove(String letter) {
 		log("in CLIENT makeMove: " + letter);
+		totalMoves++;
 		if(networkHelper.getOnline()) {
 			client.communicateActionOut(new Action(networkHelper.getUsername(),
 					ActionTag.SEND, String.valueOf(letter.charAt(0))));
@@ -358,6 +367,7 @@ public class Game implements GameActionEven {
 		prepTmpAnswer();
 		prepLetterAndPosArray();
 		moves = 0;
+		totalMoves = 0;
 		gameState.setValue(false); // initial state
 		//this.drawController = drawController;
 		if(networkHelper.getOnline()) {

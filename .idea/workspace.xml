@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28d65284-9c77-4d1d-9fe3-8b6cbf94ef86" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$3.class" afterDir="false" />
@@ -12,9 +13,10 @@
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game$GameStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/Hangman.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/Hangman.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/controller/DrawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/controller/DrawController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hangman/hangman/view/HangmanCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hangman/hangman/view/HangmanCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hangman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hangman/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,14 +91,44 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="724276585">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="219" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="219" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+            <state relative-caret-position="595">
+              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,12 +137,56 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="186" column="41" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
+            <state relative-caret-position="663">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="408" column="1" selection-start-line="408" selection-start-column="1" selection-end-line="408" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1223#1232#0" expanded="true" />
+                <element signature="e#1486#1487#0" expanded="true" />
+                <element signature="e#1516#1517#0" expanded="true" />
+                <element signature="e#1666#1667#0" expanded="true" />
+                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1753#1754#0" expanded="true" />
+                <element signature="e#1781#1782#0" expanded="true" />
+                <element signature="e#1838#1839#0" expanded="true" />
+                <element signature="e#1876#1877#0" expanded="true" />
+                <element signature="e#4273#4274#0" expanded="true" />
+                <element signature="e#4319#4320#0" expanded="true" />
+                <element signature="e#4356#4357#0" expanded="true" />
+                <element signature="e#4386#4387#0" expanded="true" />
+                <element signature="e#7953#8191#0" expanded="true" />
+                <element signature="e#8100#8101#0" expanded="true" />
+                <element signature="e#8156#8157#0" expanded="true" />
+                <element signature="e#8190#8191#0" expanded="true" />
+                <element signature="e#9362#9363#0" expanded="true" />
+                <element signature="e#9383#9384#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/hangman/helpers/CustomColors.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+              <folding>
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +195,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+            <state relative-caret-position="337">
+              <caret line="82" column="53" lean-forward="true" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+              <folding>
+                <element signature="e#3836#3837#0" expanded="true" />
+                <element signature="e#3878#3879#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,6 +233,10 @@
       <find>reset</find>
       <find>setrandom</find>
       <find>random</find>
+      <find>addte</find>
+      <find>oldv</find>
+      <find>newhang</find>
+      <find>changed</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +257,6 @@
         <option value="$PROJECT_DIR$/src/hangman/controller/drawHangmanController.java" />
         <option value="$PROJECT_DIR$/src/hangman/controller/DrawHangmanController.java" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.css" />
-        <option value="$PROJECT_DIR$/src/hangman/GameController.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/ActionTag.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/Action.java" />
         <option value="$PROJECT_DIR$/src/hangman/Networking/NetworkHelper.java" />
@@ -183,8 +266,9 @@
         <option value="$PROJECT_DIR$/src/hangman/Networking/BoringClient.java" />
         <option value="$PROJECT_DIR$/src/hangman/controller/DrawController.java" />
         <option value="$PROJECT_DIR$/src/hangman/view/HangmanCharacter.java" />
-        <option value="$PROJECT_DIR$/src/hangman/Game.java" />
         <option value="$PROJECT_DIR$/src/hangman/Hangman.java" />
+        <option value="$PROJECT_DIR$/src/hangman/GameController.java" />
+        <option value="$PROJECT_DIR$/src/hangman/Game.java" />
       </list>
     </option>
   </component>
@@ -194,80 +278,61 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="375" />
     <option name="y" value="23" />
     <option name="width" value="1347" />
-    <option name="height" value="904" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
+              <item name="Project_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
+              <item name="Project_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
+              <item name="Project_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="hangman" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
+              <item name="Project_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="hangman" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
+              <item name="Project_3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project_3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="hangman" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="Networking" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hangman" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hangman" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541431878598" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542155903923" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -356,6 +421,8 @@
       <workItem from="1541271969209" duration="12496000" />
       <workItem from="1541431042627" duration="833000" />
       <workItem from="1541626722048" duration="126000" />
+      <workItem from="1542148866116" duration="1247000" />
+      <workItem from="1542154123282" duration="1758000" />
     </task>
     <task id="LOCAL-00001" summary="Kyle: Added Networking for multiplayer">
       <created>1541577268203</created>
@@ -429,22 +496,23 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33685000" />
+    <option name="totallyTimeSpent" value="36690000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="23" width="1347" height="904" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31724137" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3184569" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
+      <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39901477" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.044262294" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.20197044" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,7 +520,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3289183" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.0" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -536,8 +604,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Networking/ActionTag.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -576,16 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Networking/BoringClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Networking/World.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -596,31 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/helpers/CustomColors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding>
-            <element signature="e#781#782#0" expanded="true" />
-            <element signature="e#849#850#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="30" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,30 +671,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
+    <entry file="file://$PROJECT_DIR$/src/hangman/Networking/BoringClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+        <state relative-caret-position="18">
+          <caret line="102" column="51" lean-forward="true" selection-start-line="102" selection-start-column="51" selection-end-line="102" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/hangman/Hangman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="186" column="41" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
+        <state relative-caret-position="595">
+          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/controller/DrawController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/helpers/CustomColors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hangman/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+        <state relative-caret-position="337">
+          <caret line="82" column="53" lean-forward="true" selection-start-line="82" selection-start-column="53" selection-end-line="82" selection-end-column="53" />
+          <folding>
+            <element signature="e#3836#3837#0" expanded="true" />
+            <element signature="e#3878#3879#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hangman/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="408" column="1" selection-start-line="408" selection-start-column="1" selection-end-line="408" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1223#1232#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1753#1754#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+            <element signature="e#1876#1877#0" expanded="true" />
+            <element signature="e#4273#4274#0" expanded="true" />
+            <element signature="e#4319#4320#0" expanded="true" />
+            <element signature="e#4356#4357#0" expanded="true" />
+            <element signature="e#4386#4387#0" expanded="true" />
+            <element signature="e#7953#8191#0" expanded="true" />
+            <element signature="e#8100#8101#0" expanded="true" />
+            <element signature="e#8156#8157#0" expanded="true" />
+            <element signature="e#8190#8191#0" expanded="true" />
+            <element signature="e#9362#9363#0" expanded="true" />
+            <element signature="e#9383#9384#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
