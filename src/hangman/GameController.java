@@ -140,6 +140,11 @@ public class GameController {
 		textField.clear();
 	}
 
+    public void serverNewHangman() { // resets the game and starts the game with a new placeholder fro the word
+        setUpUserInputLabelBinding();
+        textField.clear();
+    }
+
 	@FXML
 	private void quit() {
 		board.getScene().getWindow().hide();
