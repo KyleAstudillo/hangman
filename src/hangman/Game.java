@@ -44,6 +44,7 @@ public class Game implements GameActionEven {
 	private World world = new World();
 	private BoringClient client;
 	private Thread thread;
+	private GameController gameController;
 
 	public enum GameStatus {
 		GAME_OVER {
@@ -104,6 +105,10 @@ public class Game implements GameActionEven {
 		thread = new Thread(client);
 		thread.start();
 	}
+
+	public void init(GameController gameController){
+	    this.gameController = gameController;
+    }
 
 	@Override
 	public synchronized void actionHappen() {
@@ -354,6 +359,7 @@ public class Game implements GameActionEven {
                         gameState.setValue(false);
                         createGameStatusBinding();
                         drawHangmanFrame();
+                        gameController.newHangman();
                     }
                 });
                 return null;

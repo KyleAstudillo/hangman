@@ -27,10 +27,12 @@ public class GameController {
 	//Game Code
 	private final ExecutorService executorService;
 	private final Game game;
-	private String placeHolder;
+	public String placeHolder;
+	public SimpleStringProperty ssp;
 
 	public GameController(Game game, DrawController drawController) {
 		this.game = game;
+		this.game.init(this);
 		executorService = Executors.newSingleThreadExecutor(new ThreadFactory() {
 			@Override
 			public Thread newThread(Runnable r) {
@@ -79,15 +81,14 @@ public class GameController {
 						}
 					}
 					if (newValue.length() > 0 && newValue.length() > oldValue.length() && test == false) {
+                        game.makeMove(testValue);
+                        // updates placeholder when textfield changes
+                        placeHolder = game.updatePlaceHolder(placeHolder);
+                        // rebinds it to the placeholder with _ replaced with letter
+                        userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
+                        //textField.clear();
 
-						game.makeMove(testValue);
-						// updates placeholder when textfield changes
-						placeHolder = game.updatePlaceHolder(placeHolder);
-						// rebinds it to the placeholder with _ replaced with letter
-						userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
-						//textField.clear();
-
-					}
+                    }
 				}
 
 			}
@@ -99,6 +100,7 @@ public class GameController {
 		logger.info("in setUpStatusLabelBindings");
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
+
 		/*
 		Bindings.when(
 					game.currentPlayerProperty().isNotNull()
@@ -113,7 +115,8 @@ public class GameController {
 
 	private void setUpUserInputLabelBinding(){ // sets the placeholder to have equal number of _ as letters in answer
 		placeHolder = game.initializePlaceHolder();
-		userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
+		ssp = new SimpleStringProperty(placeHolder);
+		userInputLabel.textProperty().bindBidirectional(ssp);
 	}
 
 	/**
@@ -131,7 +134,7 @@ public class GameController {
 	}
 
 	@FXML
-	private void newHangman() { // resets the game and starts the game with a new placeholder fro the word
+	public void newHangman() { // resets the game and starts the game with a new placeholder fro the word
 		game.reset();
 		setUpUserInputLabelBinding();
 		textField.clear();
