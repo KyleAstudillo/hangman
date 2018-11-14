@@ -69,23 +69,25 @@ public class GameController {
 		textField.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-				String testValue = newValue.substring(oldValue.length());
-				boolean test = false;
-				for(int i = 0; i < oldValue.length() && !oldValue.equals(""); i++){
-					if(testValue.charAt(0) == oldValue.charAt(i)){
-						test = true;
-						break;
+				if(!newValue.isEmpty()) {
+					String testValue = newValue.substring(oldValue.length());
+					boolean test = false;
+					for (int i = 0; i < oldValue.length() && !oldValue.equals(""); i++) {
+						if (testValue.charAt(0) == oldValue.charAt(i)) {
+							test = true;
+							break;
+						}
 					}
-				}
-				if(newValue.length() > 0 && newValue.length() > oldValue.length() && test == false) {
+					if (newValue.length() > 0 && newValue.length() > oldValue.length() && test == false) {
 
-					game.makeMove(testValue);
-					// updates placeholder when textfield changes
-					placeHolder = game.updatePlaceHolder(placeHolder);
-					// rebinds it to the placeholder with _ replaced with letter
-					userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
-					//textField.clear();
+						game.makeMove(testValue);
+						// updates placeholder when textfield changes
+						placeHolder = game.updatePlaceHolder(placeHolder);
+						// rebinds it to the placeholder with _ replaced with letter
+						userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
+						//textField.clear();
 
+					}
 				}
 
 			}
