@@ -148,13 +148,25 @@ public class Game implements GameActionEven {
 				}
 				else if (index != -1){
 					log("good guess");
-					return GameStatus.GOOD_GUESS;
+					check = checkForWinner(index);
+					if (check == GameStatus.WON){
+						return GameStatus.WON;
+					}
+					else{
+						return GameStatus.GOOD_GUESS;
+					}
 				}
 				else if(index == -1 && totalMoves > 0){
 					moves++;
 					drawHangmanFrame();
 					log("bad guess");
-					return GameStatus.BAD_GUESS;
+					check = checkForWinner(index);
+					if (check == GameStatus.GAME_OVER){
+						return GameStatus.GAME_OVER;
+					}
+					else{
+						return GameStatus.BAD_GUESS;
+					}
 					//printHangman();
 				}
 				return GameStatus.BAD_GUESS;
