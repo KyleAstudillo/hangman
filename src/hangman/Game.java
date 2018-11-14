@@ -326,7 +326,6 @@ public class Game implements GameActionEven {
 		Task<Void> task = new Task<Void>() {
 
 			@Override protected Void call() throws Exception {
-
 				Platform.runLater(new Runnable() {
 					@Override public void run() {
 						gameState.setValue(!gameState.getValue());
@@ -353,13 +352,26 @@ public class Game implements GameActionEven {
 
 	//Server Reset()
 	public void reset(Action action) {
-		setWord(action);
-		prepTmpAnswer();
-		prepLetterAndPosArray();
-		moves = 0;
-		gameState.setValue(false); // initial state
-		createGameStatusBinding();
-		drawHangmanFrame();
+		//gameState.setValue(false); // initial state
+        Task<Void> task = new Task<Void>() {
+
+            @Override protected Void call() throws Exception {
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+                        setWord(action);
+                        prepTmpAnswer();
+                        prepLetterAndPosArray();
+                        moves = 0;
+                        totalMoves = 0;
+                        gameState.setValue(false);
+                        createGameStatusBinding();
+                        drawHangmanFrame();
+                    }
+                });
+                return null;
+            }
+        };
+        task.run();
 	}
 
 	//Client Reset
