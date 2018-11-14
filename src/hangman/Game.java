@@ -359,7 +359,7 @@ public class Game implements GameActionEven {
                         gameState.setValue(false);
                         createGameStatusBinding();
                         drawHangmanFrame();
-                        gameController.newHangman();
+                        gameController.serverNewHangman();
                     }
                 });
                 return null;

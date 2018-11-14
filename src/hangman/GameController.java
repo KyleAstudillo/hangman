@@ -115,7 +115,6 @@ public class GameController {
 
 	private void setUpUserInputLabelBinding(){ // sets the placeholder to have equal number of _ as letters in answer
 		placeHolder = game.initializePlaceHolder();
-		ssp = new SimpleStringProperty(placeHolder);
 		userInputLabel.textProperty().bindBidirectional(ssp);
 	}
 
@@ -141,7 +140,8 @@ public class GameController {
 	}
 
     public void serverNewHangman() { // resets the game and starts the game with a new placeholder fro the word
-        setUpUserInputLabelBinding();
+        ssp = new SimpleStringProperty(placeHolder);
+        userInputLabel.textProperty().bindBidirectional(new SimpleStringProperty(placeHolder));
         textField.clear();
     }
 
