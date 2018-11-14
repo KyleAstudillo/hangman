@@ -83,7 +83,7 @@ public class Game implements GameActionEven {
 			public void changed(ObservableValue<? extends GameStatus> observable,
 								GameStatus oldValue, GameStatus newValue) {
 				if (gameStatus.get() != GameStatus.OPEN) {
-					log("in Game: in changed");
+					//log("in Game: in changed");
 					//currentPlayer.set(null);
 				}
 			}
@@ -107,7 +107,7 @@ public class Game implements GameActionEven {
 
 	@Override
 	public synchronized void actionHappen() {
-		logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
+		//logger.warn("!!!!!!!!!!!!!!!!!!!!!! Action Happen !!!!!!!!!!!!!!!!!!!!!!");
 		Action action = world.getAction();
 		switch (action.getActionTag()){
 			case SEND:
@@ -132,7 +132,7 @@ public class Game implements GameActionEven {
 			}
 			@Override
 			public GameStatus computeValue() {
-				log("in computeValue");
+				//log("in computeValue");
 				GameStatus check = checkForWinner(index);
 				log("temporary answer is " + tmpAnswer);
 				log("index is " + index);
@@ -143,11 +143,11 @@ public class Game implements GameActionEven {
 				}
 
 				if(tmpAnswer.trim().length() == 0 && totalMoves == 0){
-					log("new game");
+					//log("new game");
 					return GameStatus.OPEN;
 				}
 				else if (index != -1){
-					log("good guess");
+					//log("good guess");
 					check = checkForWinner(index);
 					if (check == GameStatus.WON){
 						return GameStatus.WON;
@@ -159,7 +159,7 @@ public class Game implements GameActionEven {
 				else if(index == -1 && totalMoves > 0){
 					moves++;
 					drawHangmanFrame();
-					log("bad guess");
+					//log("bad guess");
 					check = checkForWinner(index);
 					if (check == GameStatus.GAME_OVER){
 						return GameStatus.GAME_OVER;
@@ -239,7 +239,7 @@ public class Game implements GameActionEven {
 		/*for(String word:words){
 			System.out.println(word);
 		}*/
-		log("in setRandomWord: ");
+		//log("in setRandomWord: ");
 		//int idx = (int) (Math.random() * words.length);
 		answer = words.get(randomNum);
 		log("Word is " + answer);
@@ -247,13 +247,13 @@ public class Game implements GameActionEven {
 	}
 
 	private void setWord(Action action) {
-		log("in setRandomWord: ");
+		//log("in setRandomWord: ");
 		answer = action.getExtra();
 		log("Word is " + answer);
 	}
 
 	private void prepTmpAnswer() {
-		log("in PrepTempAnswer: ");
+		//log("in PrepTempAnswer: ");
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < answer.length(); i++) {
 			sb.append(" ");
@@ -262,7 +262,7 @@ public class Game implements GameActionEven {
 	}
 
 	private void prepLetterAndPosArray() {
-		log("in prepLetterAndPosArray: ");
+		//log("in prepLetterAndPosArray: ");
 		letterAndPosArray = new String[answer.length()];
 		for(int i = 0; i < answer.length(); i++) {
 			letterAndPosArray[i] = answer.substring(i,i+1);
@@ -270,7 +270,7 @@ public class Game implements GameActionEven {
 	}
 
 	private int getValidIndex(String input) {
-		log("in getValidIndex: ");
+		//log("in getValidIndex: ");
 		int index = -1;
 		for(int i = 0; i < letterAndPosArray.length; i++) {
 			if(letterAndPosArray[i].equals(input)) {
@@ -284,7 +284,7 @@ public class Game implements GameActionEven {
 
 
 	private int update(String input) {
-		log("in update: ");
+		//log("in update: ");
 		for(int i = 0; i < letterAndPosArray.length; i++) {
 			if(letterAndPosArray[i].equals(input)) {
 				copies++;
@@ -304,7 +304,7 @@ public class Game implements GameActionEven {
 	}
 
 	private void drawHangmanFrame() {
-		log("in DrawHangmanFrame");
+		//log("in DrawHangmanFrame");
 		try {
 			log("*** Drawing");
 			if(this.numOfTries() >= this.getMoves()) {
@@ -318,7 +318,7 @@ public class Game implements GameActionEven {
 
 	//Server makeMove
 	public void makeMove(Action action) {
-		log("in SERVER makeMove: " + action.getExtra());
+		//log("in SERVER makeMove: " + action.getExtra());
 		totalMoves++;
 		index = update(action.getExtra());
 		// this will toggle the state of the game
@@ -339,7 +339,7 @@ public class Game implements GameActionEven {
 
 	//ClientMake Move
 	public void makeMove(String letter) {
-		log("in CLIENT makeMove: " + letter);
+		//log("in CLIENT makeMove: " + letter);
 		totalMoves++;
 		if(networkHelper.getOnline()) {
 			client.communicateActionOut(new Action(networkHelper.getUsername(),
@@ -415,7 +415,7 @@ public class Game implements GameActionEven {
 	}
 
 	private GameStatus checkForWinner(int status) {
-		log("in checkForWinner");
+		//log("in checkForWinner");
 
 		if(tmpAnswer.equals(answer)) {
 			log("won");

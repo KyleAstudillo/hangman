@@ -31,18 +31,18 @@ public class Hangman extends Application {
 	@Override
 	public void start(final Stage primaryStage) throws IOException {
         DrawController drawController = new DrawController();
-		logger.info("Starting Application");
+		//logger.info("Starting Application");
 		final Game game = new Game(drawController, networkHelper);
-        logger.info("Loading Hangman.fxml");
+        //logger.info("Loading Hangman.fxml");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Hangman.fxml"));
-        logger.info("Setting Controller");
+        //logger.info("Setting Controller");
 		loader.setController(new GameController(game, drawController));
 		Parent root = loader.load();
 		Scene scene = new Scene(root, width, height);
-        logger.info("Loading Hangman.css");
+        //logger.info("Loading Hangman.css");
 		scene.getStylesheets().add(getClass().getResource("Hangman.css").toExternalForm());
 		primaryStage.setScene(scene);
-        logger.info("Presenting Application");
+        //logger.info("Presenting Application");
         primaryStage.show();
 	}
 

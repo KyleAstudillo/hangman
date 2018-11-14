@@ -49,7 +49,7 @@ public class HangmanCharacter {
 
 
     public HangmanCharacter(){
-        logger.info("init constructor");
+        //logger.info("init constructor");
 
         //Hard Code
         width = 500;
@@ -94,7 +94,7 @@ public class HangmanCharacter {
     }
 
     public void draw(int numMov, int mov, float width, float height){
-        logger.info("draw method(numMov: " + numMov + ", mov: " + mov + ", width: " + width+", height: " + height + ")");
+        //logger.info("draw method(numMov: " + numMov + ", mov: " + mov + ", width: " + width+", height: " + height + ")");
         this.width = width;
         this.height = height;
         switch (mov) {
@@ -146,7 +146,7 @@ public class HangmanCharacter {
     }
 
     public void playTranslation(){
-        logger.info("***** SET TRANSLATION");
+        //logger.info("***** SET TRANSLATION");
         transitionHead.play();
         transitionbody.play();
         transitionleftArm.play();
@@ -157,7 +157,7 @@ public class HangmanCharacter {
     }
 
     public void stopTranslation(){
-        logger.info("***** SET TRANSLATION");
+        //logger.info("***** SET TRANSLATION");
         transitionHead.pause();
         transitionbody.pause();
         transitionleftArm.pause();
@@ -168,41 +168,41 @@ public class HangmanCharacter {
     }
 
     public Circle getHead(){
-        logger.info("getHead");
+        //logger.info("getHead");
         return head;
     }
 
     public Line getNoose(){
-        logger.info("getNoose");
+        //logger.info("getNoose");
         return noose;
     }
     public Line getNoose2(){
-        logger.info("getNoose2");
+        //logger.info("getNoose2");
         return noose2;
     }
 
     public Line getBody(){
-        logger.info("getBody");
+        //logger.info("getBody");
         return body;
     }
 
     public Line getLeftArm(){
-        logger.info("getLeftArm");
+        //logger.info("getLeftArm");
         return leftArm;
     }
 
     public Line getRightArm(){
-        logger.info("getRightArm");
+        //logger.info("getRightArm");
         return rightArm;
     }
 
     public Line getLeftLeg(){
-        logger.info("getLeftLeg");
+        //logger.info("getLeftLeg");
         return leftLeg;
     }
 
     public Line getRightLeg(){
-        logger.info("getRightLeg");
+        //logger.info("getRightLeg");
         return rightLeg;
     }
 

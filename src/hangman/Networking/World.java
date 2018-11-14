@@ -13,7 +13,7 @@ public class World {
     private Queue<Action> allActions = new LinkedList<>();
 
     public synchronized void addAction(Action action){
-        logger.info("addAction");
+        //logger.info("addAction");
         allActions.add(action);
         for (GameActionEven gameActionEven : listeners){
             gameActionEven.actionHappen();
@@ -21,12 +21,12 @@ public class World {
     }
 
     public synchronized Action getAction() {
-        logger.info("getAction");
+        //logger.info("getAction");
         return allActions.poll();
     }
 
     public void addListener(GameActionEven toAdd) {
-        logger.info("addListener");
+        //logger.info("addListener");
         listeners.add(toAdd);
     }
 }

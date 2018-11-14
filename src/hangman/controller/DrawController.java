@@ -21,7 +21,7 @@ public class DrawController {
     private float height;
 
     public DrawController(){
-        logger.info("in constructor");
+        //logger.info("in constructor");
     }
 
     //init is called after GameController has initialized but before the viewport is init
@@ -31,7 +31,7 @@ public class DrawController {
     }
 
     public void draw(int numMov, int mov){
-        logger.info("in draw");
+        //logger.info("in draw");
 
         //Attempted not to hard code this but it was hard because
         //this method is called before viewport init

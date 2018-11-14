@@ -58,7 +58,7 @@ public class GameController {
 	private DrawController drawController;
 
 	public void initialize() throws IOException {
-		logger.info("in initialize");
+		//logger.info("in initialize");
 		drawHangman();
 		addTextBoxListener();
 		setUpStatusLabelBindings();
@@ -96,7 +96,7 @@ public class GameController {
 
 	private void setUpStatusLabelBindings() {
 
-		logger.info("in setUpStatusLabelBindings");
+		//logger.info("in setUpStatusLabelBindings");
 		statusLabel.textProperty().bind(Bindings.format("%s", game.gameStatusProperty()));
 		enterALetterLabel.textProperty().bind(Bindings.format("%s", "Enter a letter:"));
 		/*
